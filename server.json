@@ -1,0 +1,45 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.founderie-labs/discord-mcp",
+  "description": "Set up, monitor and manage one Discord server: channels, forums, roles, members, moderation.",
+  "repository": {
+    "url": "https://github.com/founderie-labs/discord-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@founderie-labs/discord-mcp",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "DISCORD_BOT_TOKEN",
+          "description": "Bot token from the Discord Developer Portal (Bot → Reset Token)",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "DISCORD_GUILD_ID",
+          "description": "Your Discord server's ID",
+          "isRequired": true,
+          "format": "string"
+        },
+        {
+          "name": "DISCORD_AUDIT_CHANNEL_ID",
+          "description": "Private channel where every change is logged (recommended)",
+          "isRequired": false,
+          "format": "string"
+        },
+        {
+          "name": "DISCORD_PROTECTED_IDS",
+          "description": "Channel, role or member IDs the admin tools must never change (recommended: your user ID and top role)",
+          "isRequired": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

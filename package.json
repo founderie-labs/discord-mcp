@@ -1,0 +1,63 @@
+{
+  "name": "@founderie-labs/discord-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for administering one Discord server: channels, forums, roles, members, moderation and audit logs.",
+  "mcpName": "io.github.founderie-labs/discord-mcp",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "discord",
+    "discord-bot",
+    "mcp-server",
+    "ai",
+    "llm",
+    "admin",
+    "moderation",
+    "forum"
+  ],
+  "homepage": "https://github.com/founderie-labs/discord-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/founderie-labs/discord-mcp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/founderie-labs/discord-mcp.git"
+  },
+  "license": "MIT",
+  "author": "Founderie Labs LLP (https://founderielabs.in)",
+  "type": "module",
+  "main": "dist/server.js",
+  "bin": {
+    "discord-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist/**/*.js",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js serve",
+    "start:stdio": "node dist/cli.js",
+    "keygen": "node dist/cli.js keygen",
+    "check": "node dist/cli.js check",
+    "test": "npm run build && node test/run.mjs",
+    "prepublishOnly": "npm test",
+    "prebuild": "node -e \"const p=require('./package.json');require('fs').writeFileSync('src/version.ts','// Generated from package.json by npm run build.\\nexport const VERSION = '+JSON.stringify(p.version)+';\\nexport const NAME = '+JSON.stringify(p.name)+';\\n')\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}

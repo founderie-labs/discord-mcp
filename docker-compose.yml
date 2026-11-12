@@ -1,0 +1,12 @@
+# docker compose up -d   (fill in .env first: cp .env.example .env)
+services:
+  discord-mcp:
+    image: ghcr.io/founderie-labs/discord-mcp:latest
+    # or build from this folder:  build: .
+    env_file: .env
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    read_only: true
+    security_opt:
+      - no-new-privileges:true

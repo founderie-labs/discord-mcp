@@ -1,0 +1,26 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/mcp?page=setup"
+    },
+    {
+      "source": "/setup",
+      "destination": "/api/mcp?page=setup"
+    },
+    {
+      "source": "/health",
+      "destination": "/api/mcp?page=health"
+    },
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    },
+    {
+      "source": "/mcp/:secret",
+      "destination": "/api/mcp?secret=:secret"
+    }
+  ]
+}
